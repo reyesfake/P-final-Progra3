@@ -4,8 +4,6 @@
  */
 package pfp3;
 
-import java.util.LinkedList;
-import java.util.Queue;
 
 
 /**
@@ -22,20 +20,16 @@ public class Paquete  {
      private double peso;
      private String estado;
      private String clasificacion;
-//Queue<Paquete> cola = new LinkedList<>();
+
    
     public Paquete() {
         
-       // numeroSeguimiento = pack.getNumeroSeguimiento;
         
         
       
     }
 
  
-    
- 
-
     // Getters y setters
 
     public String getNumeroSeguimiento() {
@@ -110,25 +104,7 @@ public class Paquete  {
         this.clasificacion = clasificacion;
     }
     
-   // public void imprimirCola() {
-        
-        
-     //   System.out.println("Contenido de la cola de paquetes:");
 
-     //   for (Paquete paq : cola) {
-     //       System.out.println("Número de seguimiento: " + paq.getNumeroSeguimiento());
-     //       System.out.println("Remitente: " + paq.getRemitente());
-      //      System.out.println("Destinatario: " + paq.getDestinatario());
-      //      System.out.println("Departamento de recepción: " + paq.getDepartamentoRecepcion());
-     //       System.out.println("Departamento de destino: " + paq.getDepartamentoDestino());
-      //      System.out.println("Descripción del paquete: " + paq.getDescripcionPaquete());
-       //     System.out.println("Peso: " + paq.getPeso());
-      //      System.out.println("Estado: " + paq.getEstado());
-      //      System.out.println("Clasificación: " + paq.getClasificacion());
-      //      System.out.println("------------------------");
-      //  }
-   // }
-   
 }
 
 

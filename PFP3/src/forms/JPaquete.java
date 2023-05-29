@@ -22,23 +22,7 @@ public class JPaquete extends javax.swing.JFrame {
     public JPaquete() {
         initComponents();
     }
-//////////////////-----------///////////////
-   /* private JPaquete(String numeroSeguimiento, String remitente, String destinatario, String departamentoRecepcion, String departamentoDestino, String descripcion, double peso, String estado, String clasificacion) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    public JPaquete obtenerDatosPaquete() {
-        String numeroSeguimiento = numeroSeguimientoTextField.getText();
-        String remitente = remitenteTextField.getText();
-        String destinatario = destinatarioTextField.getText();
-        String departamentoRecepcion = departamentoRecepcionTextField.getText();
-        String departamentoDestino = departamentoDestinoTextField.getText();
-        String descripcion = descripcionPaqueteTextField.getText();
-        double peso = Double.parseDouble(pesoTextField.getText());
-        String estado = (String) estadoComboBox.getSelectedItem();
-        String clasificacion = (String) clasificacionComboBox.getSelectedItem();
 
-        return new JPaquete(numeroSeguimiento, remitente, destinatario, departamentoRecepcion, departamentoDestino, descripcion, peso, estado, clasificacion);
-    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -189,10 +173,7 @@ public class JPaquete extends javax.swing.JFrame {
         // TODO add your handling code here:
         Paquete pack = new Paquete();
         
-         
-        //modelo.set(numeroSeguimientoTextField.getText());
-        //new Paquete (numeroSeguimientoTextField.getText(), remitenteTextField.getText(), destinatarioTextField.getText(),departamentoRecepcionTextField.getText(), departamentoDestinoTextField.getText(), descripcionPaqueteTextField.getText(),Double.parseDouble(pesoTextField.getText()),(String) estadoComboBox.getSelectedItem(), (String) clasificacionComboBox.getSelectedItem());
-        
+    
         String numeroSeguimiento = numeroSeguimientoTextField.getText();
         String remitente = remitenteTextField.getText();
         String destinatario = destinatarioTextField.getText();
@@ -214,14 +195,9 @@ public class JPaquete extends javax.swing.JFrame {
         pack.setEstado(estado);
         pack.setClasificacion(clasificacion);
         
-        //new ColaPaquetes(pack).true;
+
          ColaPaquetes colaPaquetes = new ColaPaquetes(pack);
-        //cp.mostrarDatos();
-        // cp.agregarPaquete();
-        // cp.imprimirCola();
-        // obtenerDatosPaquete();
-        //cp.agregarPaquete(JPaquete);
-        //cp.imprimirCola();
+
     }//GEN-LAST:event_ButtonRegistarActionPerformed
 
     /**
