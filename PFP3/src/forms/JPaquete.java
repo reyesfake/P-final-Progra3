@@ -5,6 +5,7 @@
 package forms;
 
 
+import java.awt.event.KeyEvent;
 import pfp3.ColaPaquetes;
 import pfp3.Paquete;
 
@@ -52,8 +53,10 @@ public class JPaquete extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         clasificacionComboBox = new javax.swing.JComboBox<>();
         ButtonRegistar = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Registros de envios MONARCA");
 
         jLabel1.setText("No. Seguimiento:");
 
@@ -65,17 +68,87 @@ public class JPaquete extends javax.swing.JFrame {
 
         jLabel5.setText("Dep. Destinatario:");
 
+        numeroSeguimientoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                numeroSeguimientoTextFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numeroSeguimientoTextFieldKeyTyped(evt);
+            }
+        });
+
+        remitenteTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                remitenteTextFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                remitenteTextFieldKeyTyped(evt);
+            }
+        });
+
+        destinatarioTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                destinatarioTextFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                destinatarioTextFieldKeyTyped(evt);
+            }
+        });
+
+        departamentoRecepcionTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                departamentoRecepcionTextFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                departamentoRecepcionTextFieldKeyTyped(evt);
+            }
+        });
+
+        departamentoDestinoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                departamentoDestinoTextFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                departamentoDestinoTextFieldKeyTyped(evt);
+            }
+        });
+
         jLabel6.setText("Descripcion:");
+
+        descripcionPaqueteTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                descripcionPaqueteTextFieldKeyPressed(evt);
+            }
+        });
 
         jLabel7.setText("Peso de Paquete:");
 
+        pesoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                pesoTextFieldKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                pesoTextFieldKeyTyped(evt);
+            }
+        });
+
         estadoComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recibido", "En Transito", "Entregado", " " }));
+        estadoComboBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                estadoComboBoxKeyPressed(evt);
+            }
+        });
 
         jLabel8.setText("Estado:");
 
         jLabel9.setText("Clasificacion:");
 
         clasificacionComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sobre", "Bolsa", "Paquete Mediano", "Paquete Grande" }));
+        clasificacionComboBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                clasificacionComboBoxKeyPressed(evt);
+            }
+        });
 
         ButtonRegistar.setText("Registrar");
         ButtonRegistar.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +156,8 @@ public class JPaquete extends javax.swing.JFrame {
                 ButtonRegistarActionPerformed(evt);
             }
         });
+
+        jLabel10.setText("Unidad en libras.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,14 +193,20 @@ public class JPaquete extends javax.swing.JFrame {
                                 .addComponent(descripcionPaqueteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9))
-                                .addGap(18, 18, 18)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel9))
+                                        .addGap(45, 45, 45))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addGap(18, 18, 18)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(pesoTextField)
-                                    .addComponent(estadoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(clasificacionComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                    .addComponent(jLabel10)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(pesoTextField)
+                                        .addComponent(estadoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(clasificacionComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -143,13 +224,21 @@ public class JPaquete extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(remitenteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(descripcionPaqueteTextField))
-                .addGap(22, 22, 22)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(destinatarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(destinatarioTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(departamentoRecepcionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -163,7 +252,7 @@ public class JPaquete extends javax.swing.JFrame {
                     .addComponent(clasificacionComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addComponent(ButtonRegistar)
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         pack();
@@ -201,45 +290,167 @@ public class JPaquete extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ButtonRegistarActionPerformed
 
+    private void numeroSeguimientoTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroSeguimientoTextFieldKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            remitenteTextField.requestFocus();
+        }    
+    }//GEN-LAST:event_numeroSeguimientoTextFieldKeyPressed
+
+    private void remitenteTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_remitenteTextFieldKeyPressed
+       //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            destinatarioTextField.requestFocus(); 
+        } 
+    }//GEN-LAST:event_remitenteTextFieldKeyPressed
+
+    private void destinatarioTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_destinatarioTextFieldKeyPressed
+        //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            departamentoRecepcionTextField.requestFocus();
+        } 
+    }//GEN-LAST:event_destinatarioTextFieldKeyPressed
+
+    private void departamentoRecepcionTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_departamentoRecepcionTextFieldKeyPressed
+        //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            departamentoDestinoTextField.requestFocus();
+        }  
+    }//GEN-LAST:event_departamentoRecepcionTextFieldKeyPressed
+
+    private void departamentoDestinoTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_departamentoDestinoTextFieldKeyPressed
+        //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            descripcionPaqueteTextField.requestFocus();
+        }  
+    }//GEN-LAST:event_departamentoDestinoTextFieldKeyPressed
+
+    private void descripcionPaqueteTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_descripcionPaqueteTextFieldKeyPressed
+       //traslada en puntero de un lugar hacia otro       
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            pesoTextField.requestFocus();
+        }  
+    }//GEN-LAST:event_descripcionPaqueteTextFieldKeyPressed
+
+    private void pesoTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesoTextFieldKeyPressed
+        //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            estadoComboBox.requestFocus();
+        }  
+    }//GEN-LAST:event_pesoTextFieldKeyPressed
+
+    private void estadoComboBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_estadoComboBoxKeyPressed
+        //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+             clasificacionComboBox.requestFocus();
+        }  
+    }//GEN-LAST:event_estadoComboBoxKeyPressed
+
+    private void clasificacionComboBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_clasificacionComboBoxKeyPressed
+        //traslada en puntero de un lugar hacia otro
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+             ButtonRegistar.requestFocus();
+        } 
+    }//GEN-LAST:event_clasificacionComboBoxKeyPressed
+
+    private void numeroSeguimientoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroSeguimientoTextFieldKeyTyped
+        // VALIDAR SOLO NUMEROS
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar) || validar == KeyEvent.VK_SPACE){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_numeroSeguimientoTextFieldKeyTyped
+
+    private void remitenteTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_remitenteTextFieldKeyTyped
+        // VALIDAR SOLO LETRAS
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_remitenteTextFieldKeyTyped
+
+    private void destinatarioTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_destinatarioTextFieldKeyTyped
+        // VALIDAR SOLO LETRAS
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_destinatarioTextFieldKeyTyped
+
+    private void departamentoRecepcionTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_departamentoRecepcionTextFieldKeyTyped
+        // VALIDAR SOLO LETRAS
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_departamentoRecepcionTextFieldKeyTyped
+
+    private void departamentoDestinoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_departamentoDestinoTextFieldKeyTyped
+        // VALIDAR SOLO LETRAS
+        char validar = evt.getKeyChar();
+        
+        if(Character.isDigit(validar)){
+            getToolkit();
+            evt.consume();
+        }
+    }//GEN-LAST:event_departamentoDestinoTextFieldKeyTyped
+
+    private void pesoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pesoTextFieldKeyTyped
+        // VALIDAR SOLO NUMEROS
+        char validar = evt.getKeyChar();
+        
+        if(Character.isLetter(validar) || validar == KeyEvent.VK_SPACE){
+            getToolkit().beep();
+            evt.consume();
+        } 
+    }//GEN-LAST:event_pesoTextFieldKeyTyped
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("FlatLaf Light".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new JPaquete().setVisible(true);
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("FlatLaf Light".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(JPaquete.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> {
+//            new JPaquete().setVisible(true);
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonRegistar;
@@ -250,6 +461,7 @@ public class JPaquete extends javax.swing.JFrame {
     private javax.swing.JTextField destinatarioTextField;
     private javax.swing.JComboBox<String> estadoComboBox;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
