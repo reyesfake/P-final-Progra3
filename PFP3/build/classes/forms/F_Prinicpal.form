@@ -185,11 +185,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Nuevo Registro"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bt_NewRegistroActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Bt_Consultar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Consultar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Bt_ConsultarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="Bt_Cotizar">
           <Properties>

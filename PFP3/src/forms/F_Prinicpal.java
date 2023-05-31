@@ -1,20 +1,33 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package forms;
+
+import java.io.IOException;
+import pfp3.Cl_AbirCsv;
 
 /**
  *
- * @author ESCRITORIO-2
+ * @author jdreyescan
  */
 public class F_Prinicpal extends javax.swing.JFrame {
 
     /**
      * Creates new form F_Prinicpal
-     */
-    public F_Prinicpal() {
+     */ JPaquete Abrir =new JPaquete();
+     JFConsultas AbrirConsultas = new JFConsultas();
+     
+     
+     
+     
+    public F_Prinicpal() throws IOException {
         initComponents();
+       
+        //instancia para leer el archivo CSV en el escritorio
+        
+         Cl_AbirCsv Archivo =new Cl_AbirCsv();
+        Archivo.leerArchivo("D:\\DAVID-PC\\Escritorio\\datos_paqueteria.csv");
+        
+        
+        
     }
 
     /**
@@ -95,8 +108,18 @@ public class F_Prinicpal extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(102, 204, 255));
 
         Bt_NewRegistro.setText("Nuevo Registro");
+        Bt_NewRegistro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_NewRegistroActionPerformed(evt);
+            }
+        });
 
         Bt_Consultar.setText("Consultar");
+        Bt_Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_ConsultarActionPerformed(evt);
+            }
+        });
 
         Bt_Cotizar.setText("Cotizar");
 
@@ -144,7 +167,7 @@ public class F_Prinicpal extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, Short.MAX_VALUE)
                 .addGap(2, 2, 2)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -160,41 +183,33 @@ public class F_Prinicpal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formWindowActivated
 
+    private void Bt_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_ConsultarActionPerformed
+        AbrirConsultas.setVisible(true);
+        
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Bt_ConsultarActionPerformed
+
+    private void Bt_NewRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_NewRegistroActionPerformed
+        
+        
+        Abrir.setVisible(true);
+
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Bt_NewRegistroActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("FlatLaf Light".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(F_Prinicpal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(F_Prinicpal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(F_Prinicpal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(F_Prinicpal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    public static void main(String args[]) throws IOException {
+        
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new F_Prinicpal().setVisible(true);
-            }
-        });
-    }
+       
+
+
+
+  }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Bt_Consultar;
