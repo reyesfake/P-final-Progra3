@@ -1,69 +1,55 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package pfp3;
 
-import com.opencsv.CSVReader;
 import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Arrays;
 
 
 /**
- *
+ * 
  * @author DAVID
  */
 public class Cl_AbirCsv 
 {
+
+private BufferedReader lector;
+private String linea;
+private String partes[]=null;
+
+public void leerArchivo(String nombreArchivo) throws FileNotFoundException, IOException
+{
+
+lector = new BufferedReader(new FileReader(nombreArchivo ));
+while ((linea = lector.readLine())!=null)
+        {
+            partes= linea.split(",");
+            
+            impirmirLinea();
+            System.out.println();
+            }
     
-
-public static final char SEPARATOR=',';
-   public static final char QUOTE='"';
-
-
- CSVReader reader = null;
-      try {
-         reader = new CSVReader(new FileReader("C:\\Users\\DAVID\\Documents\\GitHub\\P-final-Progra3\\PFP3\\archivoCsv"));
-         String[] nextLine=null;
-         
-         while ((nextLine = reader.readNext()) != null) {
-            System.out.println(Arrays.toString(nextLine));
-         }
-         
-      } catch (IOException e){
-     System.out.println(e);
-    
-      } finally {
-         if (null != reader) {
-            reader.close();
-         } 
-      }
-
-
-
-
-
-/*
-
-ArchivoCSV =("C:\\Users\\DAVID\\Documents\\GitHub\\P-final-Progra3\\PFP3\\archivoCsv");
-Reader = new CSVReader(ArchivoCSV);
-
-String[] fila =null;
-
-
-while((fila=csvReader.readNext())!=null){
-
-    system.out.println(fila[0]
-    
-    +"|" +fila[1]
-    +"|"+fila[2]);
-
 
 }
+public void impirmirLinea()
+{
 
-   
+    for (String parte : partes) {
+        System.out.print(parte + " | ");
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+}
 
 
-    */
 }
