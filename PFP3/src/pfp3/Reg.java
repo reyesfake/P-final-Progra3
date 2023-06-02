@@ -4,34 +4,33 @@
  */
 package pfp3;
 
-
-
 /**
  *
  * @author ProcesosE
  */
-public class Paquete  {
-     private String numeroSeguimiento;
-     private String remitente;
-     private String destinatario;
-     private String departamentoRecepcion;
-     private String departamentoDestino;
-     private String descripcionPaquete;
-     private double peso;
-     private String estado;
-     private String clasificacion;
-
-   
-    public Paquete() {
-        
-        
-        
-      
+public class Reg{
+    
+    String numeroSeguimiento;
+    String remitente;
+    String destinatario;
+    String departamentoRecepcion;
+    String departamentoDestino;
+    String descripcion;
+    double peso;
+    String estado;
+    String clasificacion;
+    
+    public Reg(String numeroSeguimiento, String remitente, String destinatario, String departamentoRecepcion, String departamentoDestino, String descripcion, double peso, String estado, String clasificacion) {
+        this.numeroSeguimiento = numeroSeguimiento;
+        this.remitente = remitente;
+        this.destinatario = destinatario;
+        this.departamentoRecepcion = departamentoRecepcion;
+        this.departamentoDestino = departamentoDestino;
+        this.descripcion = descripcion;
+        this.peso = peso;
+        this.estado = estado;
+        this.clasificacion = clasificacion;
     }
-
- 
-    // Getters y setters
-
     public String getNumeroSeguimiento() {
         return numeroSeguimiento;
     }
@@ -62,11 +61,11 @@ public class Paquete  {
     public void setDepartamentoDestino(String departamentoDestino) {
         this.departamentoDestino = departamentoDestino;
     }
-    public String getDescripcionPaquete() {
-        return descripcionPaquete;
+    public String getDescripcion() {
+        return descripcion;
     }
-    public void setDescripcionPaquete(String descripcionPaquete) {
-        this.descripcionPaquete = descripcionPaquete;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     public double getPeso() {
         return peso;
@@ -87,7 +86,4 @@ public class Paquete  {
         this.clasificacion = clasificacion;
     }
     
-
-}
-
-
+    }
