@@ -6,9 +6,9 @@ package forms;
 
 
 import java.awt.event.KeyEvent;
-import pfp3.ColaPaquetes;
-import pfp3.Paquete;
-
+//import pfp3.ColaPaquetes;
+//import pfp3.Paquete;
+import pfp3.addRegistro;
 
 /**
  *
@@ -16,10 +16,11 @@ import pfp3.Paquete;
  */
 public class JPaquete extends javax.swing.JFrame {
 //Paquete cp;
-    ColaPaquetes cp;
+//ColaPaquetes cp;
     /**
      * Creates new form FRegistro
      */
+    addRegistro agg;
     public JPaquete() {
         initComponents();
     }
@@ -261,7 +262,9 @@ public class JPaquete extends javax.swing.JFrame {
 
     private void ButtonRegistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonRegistarActionPerformed
         // TODO add your handling code here:
+        /*DECOMENTAR
         Paquete pack = new Paquete();
+        
         
     
         String numeroSeguimiento = numeroSeguimientoTextField.getText();
@@ -287,7 +290,34 @@ public class JPaquete extends javax.swing.JFrame {
         
 
          ColaPaquetes colaPaquetes = new ColaPaquetes(pack);
+         DESCOMENTAR*/
+        
+        //Inicia la insercion de datos a la Class addRegistro,
+        
+        String numCovertirInteger = numeroSeguimientoTextField.getText(); //se creo una variable para getter del JTextFiedl
+//        int numeroSeguimiento = Integer.parseInt(numCovertirInteger);//se izo la conversion de texto a numero
+        String remitente = remitenteTextField.getText();
+        String destinatario = destinatarioTextField.getText();
+       
+        String departamentoRecepcion = departamentoRecepcionTextField.getText();
+        String departamentoDestino = departamentoDestinoTextField.getText();
+        String descripcionPaquete = descripcionPaqueteTextField.getText();
+        double peso = Double.parseDouble(pesoTextField.getText());
+        String estado =  estadoComboBox.getSelectedItem().toString();
+        String clasificacion =  clasificacionComboBox.getSelectedItem().toString();        
+        
+        // SE INICIA A SETEAR LOS DATOS Y AGUARDARLOS DENTRO DE LOS ATRIBUTOS DE LA CLASE addRegistro
+        this.agg.setNumeroSeguimientoAR(numCovertirInteger);
+        this.agg.setRemitenteAR(remitente);
+        this.agg.setDestinatarioAR(destinatario);
+        this.agg.setDepartamentoRecepcionAR(departamentoRecepcion);
+        this.agg.setDepartamentoDestinoAR(departamentoDestino);
+        this.agg.setDescripcionPaqueteAR(descripcionPaquete);
+        this.agg.setPesoAR(peso);
+        this.agg.setEstadoAR(estado);
+        this.agg.setClasificacionAR(clasificacion);
 
+        
     }//GEN-LAST:event_ButtonRegistarActionPerformed
 
     private void numeroSeguimientoTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroSeguimientoTextFieldKeyPressed

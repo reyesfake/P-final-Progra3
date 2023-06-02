@@ -1,23 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+//VALIDAR SI TIENE UNA FUNCION
 package pfp3;
 
+import java.util.HashMap;
+import java.util.Map;
 
-
-/**
- *
- * @author ProcesosE
- */
 public class ColaPaquetes {
-
     
-    Paquete pack;    
+//    Paquete pack;    
+    
+    public static Map<Integer, Paquete> ordenarRegistro = new HashMap<>();
     
     public ColaPaquetes(Paquete pack) {
         
-        this.pack = pack;
+//        this.pack = pack;
         
         
         
@@ -30,7 +25,7 @@ public class ColaPaquetes {
         double peso = pack.getPeso();
         String estado = pack.getEstado();
         String clasificacion = pack.getClasificacion();
-        
+                
         
         System.out.println(numeroSeguimiento);
         System.out.println(remitente);
@@ -41,9 +36,14 @@ public class ColaPaquetes {
         System.out.println(peso);
         System.out.println(estado);
         System.out.println(clasificacion); 
+
+Paquete addOrden = new Paquete();
         
     }
     
-    
+    public static void guardarHashMap (){
+        
+        //Paquete orden = new Paquete();
+    }
   
 }
